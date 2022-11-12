@@ -1,16 +1,26 @@
-<script lang="ts">
-  import { page } from '$app/stores';
-</script>
+<svelte:head>
+	<title>About</title>
+	<meta name="description" content="About this app" />
+</svelte:head>
 
-<h2>About</h2>
+<div class="text-column">
+	<h1>About this app</h1>
 
+	<p>
+		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
+		following into your command line and following the prompts:
+	</p>
 
-<h1>{$page.data.title}</h1>
-<div>{@html $page.data.content}</div>
-  <div class="flex flex-col">
-  {#each $page.data.pokemon as pokemon}
-  <div>
-  <a target="_blank" href={pokemon.url}>{pokemon.name}</a>
-</div>
-{/each}
+	<pre>npm create svelte@latest</pre>
+
+	<p>
+		The page you're looking at is purely static HTML, with no client-side interactivity needed.
+		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
+		the devtools network panel and reloading.
+	</p>
+
+	<p>
+		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
+		using it with JavaScript disabled!
+	</p>
 </div>

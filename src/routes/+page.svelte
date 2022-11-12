@@ -1,29 +1,59 @@
-<script context="module">
-	export const prerender = true;
-
-	export async function load({ fetch }) {
-		const response = await fetch('/api/alive');
-
-		return {
-			status: response.status,
-			props: {
-				status: response.ok && (await response.json())
-			}
-		};
-	}
-</script>
-
 <script>
-	export let status;
+	import Counter from './Counter.svelte';
+	import welcome from '$lib/images/svelte-welcome.webp';
+	import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
 
-<pre>{JSON.stringify(status, null, 2)}</pre>
-<h1>Welcome to SvelteKit - Azure static web app - changed paths</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+	<title>Home</title>
+	<meta name="description" content="Svelte demo app" />
+</svelte:head>
 
+<section>
+	<h1>
+		<span class="welcome">
+			<picture>
+				<source srcset={welcome} type="image/webp" />
+				<img src={welcome_fallback} alt="Welcome" />
+			</picture>
+		</span>
 
-<!-- for azure functions -->
-<!-- https://github.com/geoffrich/svelte-adapter-azure-swa -->
- <!-- https://github.com/tguelcan/sveltekit-azure/blob/master/src/routes/index.svelte -->
+		to your new<br />SvelteKit app
+	</h1>
 
- <!-- https://github.com/saimon24/sveltekit-stream -->
+	<h2>
+		try editing <strong>src/routes/+page.svelte</strong>
+	</h2>
+
+	<Counter />
+</section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 0.6;
+	}
+
+	h1 {
+		width: 100%;
+	}
+
+	.welcome {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding: 0 0 calc(100% * 495 / 2048) 0;
+	}
+
+	.welcome img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		display: block;
+	}
+</style>
