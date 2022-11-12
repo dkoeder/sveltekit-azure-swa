@@ -25,3 +25,5 @@
 <!-- for azure functions -->
 <!-- https://github.com/geoffrich/svelte-adapter-azure-swa -->
  <!-- https://github.com/tguelcan/sveltekit-azure/blob/master/src/routes/index.svelte -->
+
+ <!-- https://github.com/saimon24/sveltekit-stream -->
